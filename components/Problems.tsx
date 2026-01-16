@@ -11,7 +11,7 @@ export const Problems: React.FC = () => {
   ];
 
   return (
-    <section id="problems" className="py-24 bg-neutral-950 border-y border-white/5">
+    <section id="problems" className="py-32 min-h-[90vh] flex items-center bg-neutral-950 border-y border-white/5">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { BackgroundPaths } from './components/ui/background-paths';
@@ -8,8 +8,19 @@ import { Problems } from './components/Problems';
 import { Vision } from './components/Vision';
 import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
+import { LeadModal } from './components/LeadModal';
+import { PolicyModal } from './components/PolicyModal';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPolicyModalOpen, setIsPolicyModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const openPolicyModal = () => setIsPolicyModalOpen(true);
+  const closePolicyModal = () => setIsPolicyModalOpen(false);
+
   const solutions = [
     {
       id: "01",
@@ -35,13 +46,14 @@ function App() {
 
   return (
     <main className="min-h-screen bg-neutral-950">
-      <Navbar />
+      <Navbar onOpenModal={openModal} />
       
       {/* Hero Section */}
       <section id="hero">
         <BackgroundPaths 
           title={"믿음이 필요한 순간\nTrana"} 
           subtitle={"법적 효력으로 막는 중고사기, 간편 계약으로 사기를 예방하세요"}
+          onOpenModal={openModal}
         />
       </section>
 
@@ -101,17 +113,26 @@ function App() {
             당신의 신뢰 선택이 다음 거래의 이익이 됩니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-10 py-5 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20">
+            <button 
+              onClick={openModal}
+              className="px-10 py-5 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20"
+            >
               지금 무료로 시작하기
             </button>
-            <button className="px-10 py-5 bg-neutral-800 border border-white/10 text-white font-bold rounded-2xl hover:bg-neutral-700 transition-all">
-              BM 및 과금 정책 안내
+            <button 
+              onClick={openPolicyModal}
+              className="px-10 py-5 bg-neutral-800 border border-white/10 text-white font-bold rounded-2xl hover:bg-neutral-700 transition-all"
+            >
+              BM 정책 안내
             </button>
           </div>
         </div>
       </section>
 
       <Footer />
+
+      <LeadModal isOpen={isModalOpen} onClose={closeModal} />
+      <PolicyModal isOpen={isPolicyModalOpen} onClose={closePolicyModal} />
     </main>
   );
 }

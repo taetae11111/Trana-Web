@@ -22,7 +22,7 @@ export const Vision: React.FC = () => {
   ];
 
   return (
-    <section id="vision" className="py-24 bg-neutral-950 overflow-hidden">
+    <section id="vision" className="py-32 min-h-[85vh] flex items-center bg-neutral-950 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">

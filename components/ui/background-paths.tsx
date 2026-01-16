@@ -55,9 +55,11 @@ function FloatingPaths({ position }: { position: number }) {
 export function BackgroundPaths({
     title = "Background Paths",
     subtitle = "",
+    onOpenModal,
 }: {
     title?: string;
     subtitle?: string;
+    onOpenModal?: () => void;
 }) {
     // Split by newline first, then by spaces to maintain layout
     const lines = title.split("\n");
@@ -129,6 +131,7 @@ export function BackgroundPaths({
                         >
                             <Button
                                 variant="ghost"
+                                onClick={onOpenModal}
                                 className="rounded-[1.15rem] px-10 py-7 text-lg font-bold bg-emerald-500 hover:bg-emerald-400 text-white border-none transition-all duration-300 group-hover:-translate-y-0.5 shadow-lg shadow-emerald-500/30"
                             >
                                 <span className="opacity-90 group-hover:opacity-100 transition-opacity">
