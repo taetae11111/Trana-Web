@@ -63,14 +63,13 @@ function App() {
 
       <Features />
       
-      {/* Solution Highlight Section (Boxed Version) */}
+      {/* Solution Highlight Section */}
       <section id="solution" className="py-32 bg-neutral-950 text-white border-y border-white/5 relative overflow-hidden">
-        {/* Subtle background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-20 tracking-tight text-center text-white">Trana의 해결 방식</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight text-center text-white">Trana의 해결 방식</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {solutions.map((item, index) => (
@@ -80,15 +79,14 @@ function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5, borderColor: "rgba(52, 211, 153, 0.3)" }}
-                  className="p-8 md:p-10 rounded-[2.5rem] bg-neutral-900/40 border border-white/5 backdrop-blur-sm transition-all duration-300 group"
+                  className="p-8 md:p-10 rounded-[2rem] bg-neutral-900/40 border border-white/5 backdrop-blur-sm transition-all duration-300 group"
                 >
                   <div className="flex flex-col h-full">
                     <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">
-                      <span className="opacity-50 group-hover:opacity-100 transition-opacity">{item.id}.</span>
+                      <span className="opacity-50">{item.id}.</span>
                       {item.title}
                     </h3>
-                    <p className="text-neutral-400 leading-relaxed text-base md:text-lg">
+                    <p className="text-neutral-400 leading-relaxed text-base">
                       {item.description}
                     </p>
                   </div>
@@ -101,8 +99,8 @@ function App() {
 
       <Testimonials />
       
-      {/* Interactive Call-to-Action (Final conversion section) */}
-      <section id="contact" className="py-24 relative overflow-hidden bg-neutral-900">
+      {/* Interactive Call-to-Action */}
+      <section id="contact" className="py-32 relative overflow-hidden bg-neutral-900">
         <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/20 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">

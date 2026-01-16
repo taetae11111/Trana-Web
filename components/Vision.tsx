@@ -22,37 +22,46 @@ export const Vision: React.FC = () => {
   ];
 
   return (
-    <section id="vision" className="py-32 min-h-[85vh] flex items-center bg-neutral-950 overflow-hidden">
+    <section id="vision" className="py-32 flex items-center bg-neutral-950 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-bold tracking-tighter leading-tight"
-            >
-              Trana는<br />무엇을 만드는가?
-            </motion.h2>
+            <div className="inline-block relative">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] text-white"
+              >
+                Trana는<br />무엇을 만드는가?
+              </motion.h2>
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.8, ease: "circOut" }}
+                className="h-1.5 bg-emerald-500 mt-6 rounded-full"
+              />
+            </div>
           </div>
           
           <div className="lg:w-2/3 space-y-12">
             {visions.map((v, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group border-b border-white/10 pb-12 last:border-0"
+                transition={{ delay: i * 0.15 }}
+                className="group border-b border-white/5 pb-12 last:border-0"
               >
                 <div className="flex gap-8">
-                  <span className="text-2xl font-bold text-emerald-500 opacity-50 group-hover:opacity-100 transition-opacity">
+                  <span className="text-2xl font-black text-emerald-500/30 shrink-0 mt-1">
                     {v.id}
                   </span>
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4">{v.title}</h3>
-                    <p className="text-lg text-neutral-400 leading-relaxed max-w-xl">{v.desc}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">{v.title}</h3>
+                    <p className="text-lg text-neutral-400 leading-relaxed font-medium">{v.desc}</p>
                   </div>
                 </div>
               </motion.div>
