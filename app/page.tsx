@@ -1,27 +1,26 @@
 
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Navbar } from '../components/Navbar';
-import { BackgroundPaths } from '../components/ui/background-paths';
-import { Features } from '../components/Features';
-import { Problems } from '../components/Problems';
-import { Vision } from '../components/Vision';
-import { Testimonials } from '../components/Testimonials';
-import { Footer } from '../components/Footer';
-import { LeadModal } from '../components/LeadModal';
-import { PolicyModal } from '../components/PolicyModal';
+import { Navbar } from '../components/Navbar.tsx';
+import { BackgroundPaths } from '../components/ui/background-paths.tsx';
+import { Features } from '../components/Features.tsx';
+import { Problems } from '../components/Problems.tsx';
+import { Vision } from '../components/Vision.tsx';
+import { Testimonials } from '../components/Testimonials.tsx';
+import { Footer } from '../components/Footer.tsx';
+import { LeadModal } from '../components/LeadModal.tsx';
+import { PolicyModal } from '../components/PolicyModal.tsx';
+import { useModals } from './providers.tsx';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isPolicyModalOpen, setIsPolicyModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  const openPolicyModal = () => setIsPolicyModalOpen(true);
-  const closePolicyModal = () => setIsPolicyModalOpen(false);
+  const { 
+    isLeadModalOpen, 
+    closeLeadModal, 
+    openLeadModal, 
+    isPolicyModalOpen, 
+    closePolicyModal, 
+    openPolicyModal 
+  } = useModals();
 
   const solutions = [
     {
@@ -48,32 +47,26 @@ export default function Home() {
 
   return (
     <>
-      <Navbar onOpenModal={openModal} />
+      <Navbar onOpenModal={openLeadModal} />
       
       <main>
-        {/* Hero Section */}
         <section id="hero">
           <BackgroundPaths 
             title={"믿음이 필요한 순간\nTrana"} 
             subtitle={"법적 효력으로 막는 중고사기, 간편 계약으로 사기를 예방하세요"}
-            onOpenModal={openModal}
+            onOpenModal={openLeadModal}
           />
         </section>
 
         <Problems />
-        
         <Vision />
-
         <Features />
         
-        {/* Solution Highlight Section */}
         <section id="solution" className="py-32 bg-neutral-950 text-white border-y border-white/5 relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
-          
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight text-center text-white">Trana의 해결 방식</h2>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {solutions.map((item, index) => (
                   <motion.div
@@ -89,9 +82,7 @@ export default function Home() {
                         <span className="opacity-50">{item.id}.</span>
                         {item.title}
                       </h3>
-                      <p className="text-neutral-400 leading-relaxed text-base">
-                        {item.description}
-                      </p>
+                      <p className="text-neutral-400 leading-relaxed text-base">{item.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -102,20 +93,17 @@ export default function Home() {
 
         <Testimonials />
         
-        {/* Interactive Call-to-Action */}
         <section id="contact" className="py-32 relative overflow-hidden bg-neutral-900">
           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/20 to-transparent pointer-events-none" />
           <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
-              안전한 거래가 기본값이 되는 미래
-            </h2>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">안전한 거래가 기본값이 되는 미래</h2>
             <p className="text-neutral-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
               지금 Trana를 통해 누구도 거래로 상처받지 않는 세상을 함께 만드세요.<br />
               당신의 신뢰 선택이 다음 거래의 이익이 됩니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={openModal}
+                onClick={openLeadModal}
                 className="px-10 py-5 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20"
               >
                 지금 무료로 시작하기
@@ -133,7 +121,7 @@ export default function Home() {
 
       <Footer />
 
-      <LeadModal isOpen={isModalOpen} onClose={closeModal} />
+      <LeadModal isOpen={isLeadModalOpen} onClose={closeLeadModal} />
       <PolicyModal isOpen={isPolicyModalOpen} onClose={closePolicyModal} />
     </>
   );

@@ -1,50 +1,39 @@
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="ko" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trana Digital</title>
+    <title>Trana Digital | 믿음이 필요한 순간</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        scroll-padding-top: 85px;
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0a0a0a;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #444;
-      }
-    </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react,react-dom",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?external=react",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@2.5.4",
+    "clsx": "https://esm.sh/clsx@2.1.1",
+    "class-variance-authority": "https://esm.sh/class-variance-authority@0.7.0",
+    "@radix-ui/react-slot": "https://esm.sh/@radix-ui/react-slot@1.1.0?external=react",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "framer-motion": "https://esm.sh/framer-motion@^12.26.2",
-    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
-    "@radix-ui/react-slot": "https://esm.sh/@radix-ui/react-slot@^1.2.4",
-    "clsx": "https://esm.sh/clsx@^2.1.1",
-    "class-variance-authority": "https://esm.sh/class-variance-authority@^0.7.1"
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
-</head>
+    <style>
+      :root { scroll-padding-top: 85px; }
+      body { font-family: 'Inter', sans-serif; margin: 0; background-color: #0a0a0a; color: white; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0a0a0a; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    </style>
+  </head>
   <body class="bg-neutral-950 text-white overflow-x-hidden">
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

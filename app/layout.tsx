@@ -1,7 +1,6 @@
 
-'use client';
-
 import React from 'react';
+import { Providers } from './providers.tsx';
 
 export default function RootLayout({
   children,
@@ -10,7 +9,9 @@ export default function RootLayout({
 }) {
   return (
     <div className="min-h-screen bg-neutral-950 text-white font-sans selection:bg-emerald-500/30">
-      {children}
+      <Providers>
+        {children}
+      </Providers>
     </div>
   );
 }
