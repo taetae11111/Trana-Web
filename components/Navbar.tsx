@@ -1,4 +1,6 @@
 
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
@@ -23,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
     
     if (element) {
       const offset = 80; 
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
