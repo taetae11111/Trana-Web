@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "./button.tsx";
@@ -59,13 +58,11 @@ export function BackgroundPaths({
     subtitle?: string;
     onOpenModal?: () => void;
 }) {
-    // Split by newline first, then by spaces to maintain layout
     const lines = title.split("\n");
 
     return (
         <div className="relative min-h-[95vh] w-full flex items-center justify-center overflow-hidden bg-[#022c22]">
             <div className="absolute inset-0">
-                {/* Green-focused radial and linear gradients */}
                 <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/40 to-transparent pointer-events-none" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/20 via-transparent to-transparent pointer-events-none" />
                 <FloatingPaths position={1} />
