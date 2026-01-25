@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from './ui/button.tsx';
 
 interface LeadModalProps {
   isOpen: boolean;
